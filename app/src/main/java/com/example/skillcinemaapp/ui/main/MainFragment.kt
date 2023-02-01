@@ -266,7 +266,7 @@ class MainFragment : Fragment() {
                         premiersAdapter.submitList(it.take(21))
                     } else premiersAdapter.submitList(it)
                 } else {
-                    premiers.visibility = View.GONE
+                    premiers.visibility = View.INVISIBLE
                     premiersTitle.visibility = View.GONE
                 }
             }
@@ -291,7 +291,7 @@ class MainFragment : Fragment() {
                         popularAdapter.submitList(it.take(21))
                     } else popularAdapter.submitList(it)
                 } else {
-                    popular.visibility = View.GONE
+                    popular.visibility = View.INVISIBLE
                     popularMoviesTitle.visibility = View.GONE
                 }
             }
@@ -315,7 +315,7 @@ class MainFragment : Fragment() {
                         topAdapter.submitList(it.take(21))
                     } else topAdapter.submitList(it)
                 } else {
-                    top.visibility = View.GONE
+                    top.visibility = View.INVISIBLE
                     top250MoviesTitle.visibility = View.GONE
                 }
             }
@@ -340,7 +340,7 @@ class MainFragment : Fragment() {
                         seriesAdapter.submitList(it.take(21))
                     } else seriesAdapter.submitList(it)
                 } else {
-                    series.visibility = View.GONE
+                    series.visibility = View.INVISIBLE
                     seriesTitle.visibility = View.GONE
                 }
             }
@@ -368,7 +368,7 @@ class MainFragment : Fragment() {
                         firstCustomAdapter.submitList(it)
                     }
                 } else {
-                    firstCustom.visibility = View.GONE
+                    firstCustom.visibility = View.INVISIBLE
                     firstCustomSelectionCountry.visibility = View.GONE
                     firstCustomSelectionGenre.visibility = View.GONE
                 }

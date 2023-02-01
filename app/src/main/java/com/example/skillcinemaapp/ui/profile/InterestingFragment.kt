@@ -65,7 +65,6 @@ class InterestingFragment : Fragment() {
             movieViewModel.interestingList.collectLatest {
                 if (it.isNotEmpty()) {
                     interestingRecycler.isVisible = true
-                    Log.d(TAG, "There are ${it.size} movies in watched list")
                     interestingAdapter.submitList(it)
                 } else interestingRecycler.isVisible = false
             }
@@ -77,7 +76,6 @@ class InterestingFragment : Fragment() {
     }
 
     private fun onItemClickInteresting(movie: Movie) {
-        Log.d(TAG, "Movie with id ${movie.movieId} is clicked")
         movieViewModel.movieSelected(movie.movieId)
         movieViewModel.getImagesList(movie.movieId)
         movieViewModel.getStaffInfo(movie.movieId)

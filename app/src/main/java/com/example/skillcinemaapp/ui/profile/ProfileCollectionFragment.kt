@@ -89,7 +89,6 @@ class ProfileCollectionFragment : Fragment() {
                       movieViewModel.favoritesList.collectLatest {
                           if (it.isNotEmpty()) {
                               collectionRecycler.isVisible = true
-                              Log.d(TAG, "There are ${it.size} movies in the list")
                               collectionAdapter.submitList(it)
                           } else collectionRecycler.isVisible  = false
                       }
@@ -99,7 +98,6 @@ class ProfileCollectionFragment : Fragment() {
                         movieViewModel.customCollectionList.collectLatest {
                             if (it.isNotEmpty()) {
                                 collectionRecycler.isVisible = true
-                                Log.d(TAG, "There are ${it.size} movies in the list")
                                 collectionAdapter.submitList(it)
                             } else collectionRecycler.isVisible  = false
                         }
@@ -109,7 +107,6 @@ class ProfileCollectionFragment : Fragment() {
                         movieViewModel.toWatchList.collectLatest {
                             if (it.isNotEmpty()) {
                                 collectionRecycler.isVisible = true
-                                Log.d(TAG, "There are ${it.size} movies in the list")
                                 collectionAdapter.submitList(it)
                             } else collectionRecycler.isVisible  = false
                         }
@@ -124,7 +121,6 @@ class ProfileCollectionFragment : Fragment() {
     }
 
     private fun onItemClick(movie: Movie) {
-        Log.d(TAG, "Movie with id ${movie.movieId} is clicked")
         movieViewModel.movieSelected(movie.movieId)
         movieViewModel.getImagesList(movie.movieId)
         movieViewModel.getStaffInfo(movie.movieId)

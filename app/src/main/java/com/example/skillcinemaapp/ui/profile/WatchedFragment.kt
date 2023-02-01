@@ -63,7 +63,6 @@ class WatchedFragment : Fragment() {
             movieViewModel.watchedList.collectLatest {
                 if (it.isNotEmpty()) {
                     watchedRecycler.isVisible = true
-                    Log.d(TAG, "There are ${it.size} movies in watched list")
                     watchedAdapter.submitList(it)
                 } else watchedRecycler.isVisible = false
             }
@@ -75,7 +74,6 @@ class WatchedFragment : Fragment() {
     }
 
     private fun onItemClickWatched(movie: Movie){
-        Log.d(TAG, "Movie with id ${movie.movieId} is clicked")
         movieViewModel.movieSelected(movie.movieId)
         movieViewModel.getImagesList(movie.movieId)
         movieViewModel.getStaffInfo(movie.movieId)

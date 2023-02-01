@@ -171,7 +171,6 @@ class ProfileFragment : Fragment() {
             movieViewModel.customCollections.collectLatest {
                 if (it.isNotEmpty()) {
                     collectionRecyclerView.isVisible = true
-                    Log.d(TAG, "Custom collection is $it")
                     collectionAdapter.submitList(it)
                 } else collectionRecyclerView.isVisible = false
             }
@@ -213,7 +212,6 @@ class ProfileFragment : Fragment() {
             movieViewModel.interestingList.collectLatest {
                 if (it.isNotEmpty()) {
                     interestingRecyclerView.isVisible = true
-                    Log.d(TAG, "There are ${it.size} movies in interesting list")
                     interestingAdapter.submitList(it.take(11))
                 } else interestingRecyclerView.isVisible = false
             }
@@ -224,7 +222,6 @@ class ProfileFragment : Fragment() {
             movieViewModel.watchedList.collectLatest {
                 if (it.isNotEmpty()) {
                     watchedRecyclerView.isVisible = true
-                    Log.d(TAG, "There are ${it.size} movies in watched list")
                     watchedAdapter.submitList(it.take(11))
                 } else watchedRecyclerView.isVisible = false
             }
@@ -237,7 +234,6 @@ class ProfileFragment : Fragment() {
     }
 
     private fun onWatchedItemClick(movie: Movie) {
-        Log.d(TAG, "Movie with id ${movie.movieId} is clicked")
         movieViewModel.movieSelected(movie.movieId)
         movieViewModel.getImagesList(movie.movieId)
         movieViewModel.getStaffInfo(movie.movieId)
@@ -255,7 +251,6 @@ class ProfileFragment : Fragment() {
     }
 
     private fun onInterestingItemClick(movie: Movie) {
-        Log.d(TAG, "Movie with id ${movie.movieId} is clicked")
         movieViewModel.movieSelected(movie.movieId)
         movieViewModel.getImagesList(movie.movieId)
         movieViewModel.getStaffInfo(movie.movieId)

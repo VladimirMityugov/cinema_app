@@ -118,6 +118,6 @@ interface MovieApi {
 
     companion object {
         const val BASE_URl = "https://kinopoiskapiunofficial.tech/"
-        private const val KEY = "411d955e-d644-4e2c-a3f1-cf1256c90ee2"
+        private const val KEY = "f53b51af-60b9-4729-b67b-fe875112ba46"
     }
 }
