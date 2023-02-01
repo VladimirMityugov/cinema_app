@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/show_all_item"
+    android:layout_width="112dp"
+    android:layout_height="156dp"
+    android:layout_marginEnd="8dp">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/arrow_picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/arrow_button_background"
+        android:elevation="2dp"
+        android:src="@drawable/arrow_icon" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/show_all_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="28dp"
+        android:text="@string/show_all"
+        android:textAppearance="@style/movie_selection_title_text_style"
+        android:textSize="12sp" />
+
+
+</FrameLayout>

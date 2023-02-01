@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pop_up_window"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:theme="@style/BottomSheetDialogTheme"
+    android:orientation="vertical"
+    android:background = "@color/transparent"
+    tools:context=".ui.main.CollectionHandlerFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottom_sheet_dialog_background">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/cross_button"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="26dp"
+            android:background="@drawable/arrow_button_background"
+            android:src="@drawable/cross_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RelativeLayout
+            android:id="@+id/relative_layout_first"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="48dp"
+            android:paddingBottom="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardView"
+                android:layout_width="96dp"
+                android:layout_height="132dp"
+                android:layout_gravity="top"
+                app:cardCornerRadius="4dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/movie_poster"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    tools:src="@tools:sample/avatars" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/movie_rating"
+                    android:layout_width="17dp"
+                    android:layout_height="10dp"
+                    android:layout_gravity="start"
+                    android:layout_margin="4dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/rating_new_background"
+                    android:elevation="4dp"
+                    android:text="8.0"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/onboarding_text_style"
+                    android:textColor="@color/myGrey"
+                    android:textSize="6sp"
+                    tools:ignore="RtlCompat,SmallSp" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/movie_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="54dp"
+                android:layout_marginEnd="16dp"
+                android:layout_toEndOf="@id/cardView"
+                android:text="@string/movie_title"
+                android:textAppearance="@style/onboarding_text_style"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/movie_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/movie_title"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:layout_toEndOf="@id/cardView"
+                android:text="@string/movie_info"
+                android:textAppearance="@style/seasons_text_style" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/add_to_collection_layout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/border"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/relative_layout_first"
+            app:layout_constraintVertical_bias="0">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/add_to_collection_icon"
+                android:layout_width="19dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="50dp"
+                android:background="@drawable/arrow_button_background"
+                android:src="@drawable/folder_plus_icon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/add_to_collection"
+                style="@style/selection_title_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="90dp"
+                android:text="@string/add_to_collection" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/favorites_layout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/border"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/add_to_collection_layout"
+            app:layout_constraintVertical_bias="0">
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkbox_icon_favorites"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="80dp"
+                android:button="@drawable/checkbox_background" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/selection_title_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="65dp"
+                android:layout_alignStart="@+id/checkbox_icon_favorites"
+                android:text="@string/favorites" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/number_favorites"
+                style="@style/selection_title_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="26dp"
+                android:text="4" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/to_watch_layout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/border"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/favorites_layout"
+            app:layout_constraintVertical_bias="0">
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkbox_icon_to_watch"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="80dp"
+                android:button="@drawable/checkbox_background" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/selection_title_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="65dp"
+                android:layout_alignStart="@+id/checkbox_icon_to_watch"
+                android:text="@string/to_watch" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/number_to_watch"
+                style="@style/selection_title_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="26dp"
+                android:text="4" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/container_layout_for_custom_collection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/to_watch_layout"
+            app:layout_constraintVertical_bias="0">
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/create_custom_collection_layout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/border"
+            android:layout_marginBottom="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/container_layout_for_custom_collection"
+            app:layout_constraintVertical_bias="0">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/create_custom_collection_button"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="80dp"
+                android:src="@drawable/plus_icon"
+                android:background="@drawable/arrow_button_background"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/selection_title_text_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="65dp"
+                android:layout_alignStart="@+id/create_custom_collection_button"
+                android:text="Создать свою коллекцию" />
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</FrameLayout>

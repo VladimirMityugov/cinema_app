@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_main">
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.example.skillcinemaapp.ui.search.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_navigation_search_to_searchSettingsFragment"
+            app:destination="@id/searchSettingsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:launchSingleTop="false"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_navigation_search_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.skillcinemaapp.ui.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_navigation_profile_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_navigation_profile_to_watchedFragment"
+            app:destination="@id/watchedFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_navigation_profile_to_interestingFragment"
+            app:destination="@id/interestingFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_navigation_profile_to_profileCollectionFragment"
+            app:destination="@id/profileCollectionFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_main"
+        android:name="com.example.skillcinemaapp.ui.main.MainFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_navigation_main_to_selectionFragment"
+            app:destination="@id/selectionFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_navigation_main_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/selectionFragment"
+        android:name="com.example.skillcinemaapp.ui.main.SelectionFragment"
+        android:label="fragment_selection"
+        tools:layout="@layout/fragment_selection">
+        <action
+            android:id="@+id/action_selectionFragment_to_navigation_main"
+            app:destination="@id/navigation_main"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_selectionFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailsFragment"
+        android:name="com.example.skillcinemaapp.ui.main.MovieDetailsFragment"
+        android:label="fragment_movie_details"
+        tools:layout="@layout/fragment_movie_details">
+        <action
+            android:id="@+id/action_movieDetailsFragment_to_navigation_main"
+            app:destination="@id/navigation_main"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_movieDetailsFragment_to_selectionFragment"
+            app:destination="@id/selectionFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_movieDetailsFragment_to_staffFragment"
+            app:destination="@id/staffFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@android:anim/slide_out_right"  />
+        <action
+            android:id="@+id/action_movieDetailsFragment_to_personFragment"
+            app:destination="@id/personFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@android:anim/slide_out_right"  />
+        <action
+            android:id="@+id/action_movieDetailsFragment_to_imagesFragment"
+            app:destination="@id/imagesFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_movieDetailsFragment_to_similarMoviesFragment"
+            app:destination="@id/similarMoviesFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_movieDetailsFragment_to_seriesFragment"
+            app:destination="@id/seriesFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_movieDetailsFragment_to_collectionGalleryFragment"
+            app:destination="@id/collectionGalleryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/staffFragment"
+        android:name="com.example.skillcinemaapp.ui.main.StaffFragment"
+        android:label="fragment_staff"
+        tools:layout="@layout/fragment_staff">
+        <action
+            android:id="@+id/action_staffFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@android:anim/slide_out_right"  />
+        <action
+            android:id="@+id/action_staffFragment_to_personFragment"
+            app:destination="@id/personFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@android:anim/slide_out_right"  />
+    </fragment>
+    <fragment
+        android:id="@+id/personFragment"
+        android:name="com.example.skillcinemaapp.ui.main.PersonFragment"
+        android:label="fragment_person"
+        tools:layout="@layout/fragment_person">
+        <action
+            android:id="@+id/action_personFragment_to_staffFragment"
+            app:destination="@id/staffFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@android:anim/slide_out_right"  />
+        <action
+            android:id="@+id/action_personFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@android:anim/slide_out_right"  />
+        <action
+            android:id="@+id/action_personFragment_to_filmographyFragment"
+            app:destination="@id/filmographyFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@android:anim/slide_out_right"  />
+        <action
+            android:id="@+id/action_personFragment_to_photoPopupFragment"
+            app:destination="@id/photoPopupFragment" />
+        <action
+            android:id="@+id/action_personFragment_to_bestPersonMoviesFragment"
+            app:destination="@id/bestPersonMoviesFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/imagesFragment"
+        android:name="com.example.skillcinemaapp.ui.main.ImagesFragment"
+        android:label="fragment_images"
+        tools:layout="@layout/fragment_images">
+        <action
+            android:id="@+id/action_imagesFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@android:anim/slide_out_right"  />
+    </fragment>
+    <fragment
+        android:id="@+id/filmographyFragment"
+        android:name="com.example.skillcinemaapp.ui.main.FilmographyFragment"
+        android:label="fragment_filmography"
+        tools:layout="@layout/fragment_filmography">
+        <action
+            android:id="@+id/action_filmographyFragment_to_personFragment"
+            app:destination="@id/personFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@android:anim/slide_out_right"  />
+        <action
+            android:id="@+id/action_filmographyFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@android:anim/slide_out_right"  />
+    </fragment>
+    <fragment
+        android:id="@+id/similarMoviesFragment"
+        android:name="com.example.skillcinemaapp.ui.main.SimilarMoviesFragment"
+        android:label="fragment_similar_movies"
+        tools:layout="@layout/fragment_similar_movies">
+        <action
+            android:id="@+id/action_similarMoviesFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@android:anim/slide_out_right"  />
+    </fragment>
+    <fragment
+        android:id="@+id/seriesFragment"
+        android:name="com.example.skillcinemaapp.ui.main.SeriesFragment"
+        android:label="fragment_series"
+        tools:layout="@layout/fragment_series">
+        <action
+            android:id="@+id/action_seriesFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoPopupFragment"
+        android:name="com.example.skillcinemaapp.ui.main.PhotoPopupFragment"
+        android:label="PhotoPopupFragment">
+        <action
+            android:id="@+id/action_photoPopupFragment_to_personFragment"
+            app:destination="@id/personFragment"
+            app:popUpTo="@id/personFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/bestPersonMoviesFragment"
+        android:name="com.example.skillcinemaapp.ui.main.BestPersonMoviesFragment"
+        android:label="fragment_best_person_movies"
+        tools:layout="@layout/fragment_best_person_movies">
+        <action
+            android:id="@+id/action_bestPersonMoviesFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/collectionGalleryFragment"
+        android:name="com.example.skillcinemaapp.ui.main.CollectionGalleryFragment"
+        android:label="fragment_gallery_collection"
+        tools:layout="@layout/fragment_gallery_collection">
+        <action
+            android:id="@+id/action_collectionGalleryFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment"
+            app:popUpTo="@id/movieDetailsFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_global_navigation_main"
+        app:destination="@id/navigation_main" />
+    <action android:id="@+id/action_global_navigation_profile"
+        app:destination="@id/navigation_profile"/>
+    <action android:id="@+id/action_global_navigation_search"
+        app:destination="@id/navigation_search"/>
+    <fragment
+        android:id="@+id/watchedFragment"
+        android:name="com.example.skillcinemaapp.ui.profile.WatchedFragment"
+        android:label="fragment_watched"
+        tools:layout="@layout/fragment_watched" >
+        <action
+            android:id="@+id/action_watchedFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/interestingFragment"
+        android:name="com.example.skillcinemaapp.ui.profile.InterestingFragment"
+        android:label="fragment_interesting"
+        tools:layout="@layout/fragment_interesting" >
+        <action
+            android:id="@+id/action_interestingFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/profileCollectionFragment"
+        android:name="com.example.skillcinemaapp.ui.profile.ProfileCollectionFragment"
+        android:label="fragment_collection_profile"
+        tools:layout="@layout/fragment_collection_profile" >
+        <action
+            android:id="@+id/action_profileCollectionFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/searchSettingsFragment"
+        android:name="com.example.skillcinemaapp.ui.search.SearchSettingsFragment"
+        android:label="fragment_search_settings"
+        tools:layout="@layout/fragment_search_settings" >
+        <action
+            android:id="@+id/action_searchSettingsFragment_to_countrySelectFragment"
+            app:destination="@id/countrySelectFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_searchSettingsFragment_to_genreSelectFragment"
+            app:destination="@id/genreSelectFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_searchSettingsFragment_to_navigation_search"
+            app:destination="@id/navigation_search"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_searchSettingsFragment_to_yearSelectFragment"
+            app:destination="@id/yearSelectFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/countrySelectFragment"
+        android:name="com.example.skillcinemaapp.ui.search.CountrySelectFragment"
+        android:label="fragment_country_select"
+        tools:layout="@layout/fragment_country_select" >
+        <action
+            android:id="@+id/action_countrySelectFragment_to_searchSettingsFragment"
+            app:destination="@id/searchSettingsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/genreSelectFragment"
+        android:name="com.example.skillcinemaapp.ui.search.GenreSelectFragment"
+        android:label="fragment_genre_select"
+        tools:layout="@layout/fragment_genre_select" >
+        <action
+            android:id="@+id/action_genreSelectFragment_to_searchSettingsFragment"
+            app:destination="@id/searchSettingsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/yearSelectFragment"
+        android:name="com.example.skillcinemaapp.ui.search.YearSelectFragment"
+        android:label="fragment_year_select"
+        tools:layout="@layout/fragment_year_select" >
+        <action
+            android:id="@+id/action_yearSelectFragment_to_searchSettingsFragment"
+            app:destination="@id/searchSettingsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+
+</navigation>

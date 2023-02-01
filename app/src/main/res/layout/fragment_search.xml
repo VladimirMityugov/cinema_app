@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_search"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="26dp"
+    tools:context=".ui.search.SearchFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/search_view"
+                style="@style/SearchViewStyle"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginTop="58dp"
+                android:layout_marginEnd="26dp"
+                android:background="@drawable/search_bar_background"
+                android:paddingEnd="40dp"
+                app:iconifiedByDefault="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:queryHint="Фильмы, актёры, режиссёры" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/divider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:src="@drawable/vertical_bar"
+                app:layout_constraintBottom_toBottomOf="@id/search_view"
+                app:layout_constraintEnd_toEndOf="@id/search_view"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/search_view"
+                app:layout_constraintTop_toTopOf="@id/search_view" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/filter_button"
+                android:layout_width="16dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="18dp"
+                android:src="@drawable/settings_adjust_icon"
+                app:layout_constraintBottom_toBottomOf="@id/search_view"
+                app:layout_constraintEnd_toEndOf="@id/search_view"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@id/search_view"
+                app:layout_constraintTop_toTopOf="@id/search_view" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/search_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="26dp"
+                android:layout_marginBottom="65dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search_view"
+                app:layout_constraintVertical_bias="0"
+                tools:listitem="@layout/filmography_movie_item" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/error_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:layout_marginEnd="36dp"
+                android:layout_marginStart="10dp"
+                android:visibility="invisible"
+                android:layout_marginBottom="65dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search_view"
+                app:layout_constraintVertical_bias="0"
+                android:text="@string/error_search"
+                android:textAlignment="center"
+                android:textAppearance="@style/year_text_style"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>

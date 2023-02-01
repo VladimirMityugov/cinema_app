@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_profile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="26dp"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    tools:context=".ui.profile.ProfileFragment">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/loader"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="450dp"
+        android:background="@drawable/progress_bar_piece"
+        android:elevation="5dp"
+        android:visibility="invisible" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="65dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/watched_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="106dp"
+                android:text="@string/watched"
+                android:textAppearance="@style/movie_selection_title_text_style"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/all_watched_number"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="46dp"
+                android:background="@drawable/arrow_button_background"
+                android:textAppearance="@style/show_all_button_text_style"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/extend_watched"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="105dp"
+                android:layout_marginEnd="26dp"
+                android:background="@drawable/arrow_button_background"
+                android:elevation="2dp"
+                android:src="@drawable/fwd_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/watched_recycler_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/watched_title"
+                app:layout_constraintVertical_bias="0"
+                tools:listitem="@layout/movie_item" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/collections_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:text="@string/Collections"
+                android:textAppearance="@style/movie_selection_title_text_style"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/watched_recycler_view"
+                app:layout_constraintVertical_bias="0" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/create_collection_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="27dp"
+                android:background="@drawable/arrow_button_background"
+                android:elevation="2dp"
+                android:src="@drawable/plus_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/collections_title"
+                app:layout_constraintVertical_bias="0" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/create_custom_collection_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="18dp"
+                android:background="@color/transparent"
+                android:text="@string/create_custom_collection"
+                android:textAppearance="@style/description_text_style"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toEndOf="@id/create_collection_button"
+                app:layout_constraintTop_toBottomOf="@id/collections_title"
+                app:layout_constraintVertical_bias="0" />
+
+            <LinearLayout
+                android:id="@+id/linear_layout"
+                android:layout_width="324dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="72dp"
+                android:layout_marginEnd="26dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/collections_title">
+
+                <FrameLayout
+                    android:id="@+id/favorits_collection"
+                    android:layout_width="146dp"
+                    android:layout_height="146dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/border_for_collections"
+                    android:clickable="true">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/custom_collection_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/favorits"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/character_text_style" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:src="@drawable/heart_icon_for_collections" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/number_in_favorits_collection"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/background_for_numbers_in_collection"
+                        android:fontFamily="@font/graphik_regular"
+                        android:text="20"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/numbers_in_collections_text_style"
+                        android:visibility="invisible" />
+
+                </FrameLayout>
+
+                <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/to_watch_collection"
+                    android:layout_width="146dp"
+                    android:layout_height="146dp"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/border_for_collections"
+                    android:clickable="true">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/to_watch_collection_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="@string/want_to_watch"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/character_text_style" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:src="@drawable/bookmark_icon_for_collection" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/number_in_to_watch_collection"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/background_for_numbers_in_collection"
+                        android:fontFamily="@font/graphik_regular"
+                        android:text="20"
+                        android:textAlignment="center"
+                       android:textAppearance="@style/numbers_in_collections_text_style"
+                        android:visibility="invisible" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/container_layout_for_custom_collections"
+                android:layout_width="324dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="26dp"
+               app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintTop_toBottomOf="@id/linear_layout"
+                tools:listitem="@layout/custom_collection_in_profile">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/interesting_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="@string/interesting"
+                android:textAppearance="@style/movie_selection_title_text_style"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/container_layout_for_custom_collections"
+                app:layout_constraintVertical_bias="0" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/all_interesting_number"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="46dp"
+                android:background="@drawable/arrow_button_background"
+                android:textAppearance="@style/show_all_button_text_style"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/container_layout_for_custom_collections"
+                app:layout_constraintVertical_bias="0" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/extend_interesting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="26dp"
+                android:background="@drawable/arrow_button_background"
+                android:elevation="2dp"
+                android:src="@drawable/fwd_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/container_layout_for_custom_collections"
+                app:layout_constraintVertical_bias="0" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/interesting_recycler_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="26dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/interesting_title"
+                app:layout_constraintVertical_bias="0"
+                tools:listitem="@layout/movie_item" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>

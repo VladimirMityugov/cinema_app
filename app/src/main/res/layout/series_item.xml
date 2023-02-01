@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/series_item"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="40dp"
+   >
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/series_info"
+        android:layout_alignParentTop="true"
+        android:textAppearance="@style/actor_name_text_style"
+        android:text="@string/seasons_info"
+      />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/date"
+        android:layout_marginTop="4dp"
+        android:layout_below="@id/series_info"
+        android:textAppearance="@style/seasons_dates_text_style"
+        android:text="@string/description"
+        />
+
+</RelativeLayout>

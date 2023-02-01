@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "995145090904",
+    "project_id": "my-firebase-project-65777",
+    "storage_bucket": "my-firebase-project-65777.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:995145090904:android:0f00ef76de96d30455872d",
+        "android_client_info": {
+          "package_name": "com.example.recyclerviewapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "995145090904-hek6nc890hht5ngqte0a66f9iee4i8pm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsjLq_VeSG1sppdoCt0xolSwVX2OdlFMQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "995145090904-hek6nc890hht5ngqte0a66f9iee4i8pm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:995145090904:android:eef03602b5d5d71655872d",
+        "android_client_info": {
+          "package_name": "com.example.skillcinemaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "995145090904-hek6nc890hht5ngqte0a66f9iee4i8pm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsjLq_VeSG1sppdoCt0xolSwVX2OdlFMQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "995145090904-hek6nc890hht5ngqte0a66f9iee4i8pm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

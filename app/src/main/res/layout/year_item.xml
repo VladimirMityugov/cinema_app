@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/year_item"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="15dp"
+    android:layout_marginEnd="15dp"
+    android:layout_marginTop="6dp"
+    android:layout_marginBottom="6dp"
+   >
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/year_item_background"
+        android:textColor="@color/year_item_text_color"
+        android:id="@+id/year"
+        android:enabled="false"
+        android:layout_alignParentTop="true"
+        android:textAppearance="@style/year_text_style"
+        android:text="2000"
+      />
+
+</FrameLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/loader"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="@drawable/progress_bar_piece"
+        android:layout_gravity="top|center"
+ />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/footer_message"
+        android:textAlignment="center"
+        android:layout_gravity="center|top"
+        android:text="@string/footer_message"
+        android:layout_marginTop="40dp"/>
+
+</FrameLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/gallery_item"
+    android:layout_width="192dp"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp">
+
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
+        android:layout_width="192dp"
+        android:layout_height="108dp"
+        android:layout_gravity="top"
+        app:cardCornerRadius="4dp"
+        >
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/gallery_movie_picture"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            tools:src="@tools:sample/avatars"
+           />
+
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>
