@@ -105,6 +105,9 @@ class MovieViewModel @Inject constructor(
     private val _images = MutableStateFlow<ImagesDto?>(null)
     val images = _images.asStateFlow()
 
+    private val _imageSelected = MutableStateFlow<Image?>(null)
+    val imageSelected = _imageSelected.asStateFlow()
+
     private val _seriesInfo = MutableStateFlow<SeriesInfoDto?>(null)
     val seriesInfo = _seriesInfo.asStateFlow()
 
@@ -1220,6 +1223,12 @@ class MovieViewModel @Inject constructor(
     fun movieSelected(itemId: Int) {
         viewModelScope.launch {
             _movieSelected.value = itemId
+        }
+    }
+
+    fun imageSelected(image: Image){
+        viewModelScope.launch {
+            _imageSelected.value = image
         }
     }
 

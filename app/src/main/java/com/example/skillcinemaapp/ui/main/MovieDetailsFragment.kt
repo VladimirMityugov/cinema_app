@@ -646,7 +646,7 @@ class MovieDetailsFragment : Fragment() {
     }
 
     private fun onImageClick(image: Image) {
-        Log.d(TAG, "Image with url ${image.imageUrl} is clicked")
+        movieViewModel.imageSelected(image)
         findNavController().navigate(R.id.action_movieDetailsFragment_to_collectionGalleryFragment)
     }
 
