@@ -1,5 +1,5 @@
 # cinema_app
-### Search movies, series, create collections
+### Search movies, series, create collections. Available in English and Russian
 
 **Onboarding**
 <p align="left">
