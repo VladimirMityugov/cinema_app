@@ -49,17 +49,16 @@ class CustomViewHolderIndividual(
 
             movieGenre.text = item.genres.firstOrNull()?.genre
 
-            if(item.watchedStatus !=null){
-                watchedStatus.isVisible = item.watchedStatus== true
+            if (item.watchedStatus != null) {
+                watchedStatus.isVisible = item.watchedStatus == true
             } else watchedStatus.isVisible = false
 
             if (item.nameRu == null && item.nameEn == null && item.nameOriginal == null) {
                 movieTitle.isVisible = false
             } else {
                 movieTitle.text = when {
-                    Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK -> item.nameOriginal
-                        ?: item.nameEn.toString()
-                    else -> item.nameRu
+                    Locale.getDefault() == Locale("ru", "RU") -> item.nameRu
+                    else -> item.nameOriginal ?: item.nameEn.toString()
                 }
             }
 
@@ -71,9 +70,9 @@ class CustomViewHolderIndividual(
                     else -> item.ratingImdb.toString()
                 }
             }
-binding.root.setOnClickListener {
-    onFirstCustomItemClick(item)
-}
+            binding.root.setOnClickListener {
+                onFirstCustomItemClick(item)
+            }
         }
     }
 }

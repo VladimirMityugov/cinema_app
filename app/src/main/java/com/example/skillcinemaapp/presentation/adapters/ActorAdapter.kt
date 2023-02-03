@@ -47,10 +47,10 @@ class ActorViewHolder(
                     .centerCrop()
                     .into(personPhoto)
 
-                if (Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK) {
-                    personName.text = actor.nameEn ?: ""
-                } else {
+                if (Locale.getDefault() == Locale("ru","RU")) {
                     personName.text = actor.nameRu ?: actor.nameEn ?: ""
+                } else {
+                    personName.text = actor.nameEn ?: ""
                 }
 
                 description.text = actor.description ?: ""

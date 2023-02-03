@@ -58,8 +58,8 @@ class PersonFilmographyViewHolder(
             }
 
             movieTitle.text = when {
-                Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK -> item.nameEn ?: ""
-                else -> item.nameRu ?: ""
+                Locale.getDefault() == Locale("ru", "RU")-> item.nameRu?:item.nameEn?:""
+                else -> item.nameEn?:""
             }
 
             binding.root.setOnClickListener {

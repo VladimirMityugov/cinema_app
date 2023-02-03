@@ -68,13 +68,13 @@ open class SeriesInfoAdapter(
             with(binding) {
                 seriesInfo.text = buildString {
                     append(item.episodeNumber)
-                    if(Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK){
-                        append(" series. ")
-                        append(item.nameEn?:"")
-                    }
-                    else{
+                    if(Locale.getDefault() == Locale("ru", "RU")){
                         append(" серия. ")
                         append(item.nameRu?:"")
+                    }
+                    else{
+                        append(" series. ")
+                        append(item.nameEn?:"")
                     }
 
                 }
@@ -127,24 +127,24 @@ open class SeriesInfoAdapter(
                         when (seasonsNumber) {
                             0 -> ""
                             1 -> {
-                                if(Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK){
-                                    " season, "
-                                }else{
+                                if(Locale.getDefault() == Locale("ru", "RU")){
                                     " сезон, "
+                                }else{
+                                    " season, "
                                 }
                             }
                             in 2..4 -> {
-                                if(Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK){
-                                    " season, "
-                                }else{
+                                if(Locale.getDefault() == Locale("ru", "RU")){
                                     " сезона, "
+                                }else{
+                                    " season, "
                                 }
                             }
                             else -> {
-                                if(Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK){
-                                    " seasons, "
-                                }else{
+                                if(Locale.getDefault() == Locale("ru", "RU")){
                                     " сезонов, "
+                                }else{
+                                    " seasons, "
                                 }
                             }
 
@@ -157,31 +157,31 @@ open class SeriesInfoAdapter(
                         if(episodeNumber>0){
                         when (episodeNumber.toString().takeLast(1)) {
                             "0" -> {
-                                if(Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK){
-                                    " series. "
-                                }else{
+                                if(Locale.getDefault() == Locale("ru", "RU")){
                                     " серий."
+                                }else{
+                                    " series. "
                                 }
                             }
                             "1" -> {
-                                if(Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK){
-                                    " series."
-                                }else{
+                                if(Locale.getDefault() == Locale("ru", "RU")){
                                     " серия."
+                                }else{
+                                    " series."
                                 }
                             }
                             "2","3","4" -> {
-                                if(Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK){
-                                    " series."
-                                }else{
+                                if(Locale.getDefault() == Locale("ru", "RU")){
                                     " серии."
+                                }else{
+                                    " series."
                                 }
                             }
                             else -> {
-                                if(Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK){
-                                    " series."
-                                }else{
+                                if(Locale.getDefault() == Locale("ru", "RU")){
                                     " серий."
+                                }else{
+                                    " series."
                                 }
                             }
                         }

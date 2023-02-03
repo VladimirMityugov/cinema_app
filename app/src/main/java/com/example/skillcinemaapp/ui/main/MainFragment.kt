@@ -198,7 +198,7 @@ class MainFragment : Fragment() {
             movieViewModel.countryValueFirst.collectLatest { id ->
                 movieViewModel.countries.collectLatest {
                     if (it.isNotEmpty() && id != null) {
-                        firstCustomSelectionCountry.visibility = View.VISIBLE
+                        firstCustomSelectionCountry.visibility = View.GONE
                         firstCustomSelectionCountry.text = it[id - 1].country
                     } else {
                         firstCustomSelectionCountry.visibility = View.GONE
@@ -211,7 +211,7 @@ class MainFragment : Fragment() {
             movieViewModel.genreValueFirst.collectLatest { id ->
                 movieViewModel.genres.collectLatest {
                     if (it.isNotEmpty() && id != null) {
-                        firstCustomSelectionGenre.visibility = View.VISIBLE
+                        firstCustomSelectionGenre.visibility = View.GONE
                         firstCustomSelectionGenre.text =
                             it[id - 1].genre?.replaceFirstChar { Char ->
                                 if (Char.isLowerCase()) Char.titlecase(
@@ -229,7 +229,7 @@ class MainFragment : Fragment() {
             movieViewModel.countryValueSecond.collectLatest { id ->
                 movieViewModel.countries.collectLatest {
                     if (it.isNotEmpty() && id != null) {
-                        secondCustomSelectionCountry.visibility = View.VISIBLE
+                        secondCustomSelectionCountry.visibility = View.GONE
                         secondCustomSelectionCountry.text = it[id - 1].country
                     } else {
                         secondCustomSelectionCountry.visibility = View.GONE
@@ -242,7 +242,7 @@ class MainFragment : Fragment() {
             movieViewModel.genreValueSecond.collectLatest { id ->
                 movieViewModel.genres.collectLatest {
                     if (it.isNotEmpty() && id != null) {
-                        secondCustomSelectionGenre.visibility = View.VISIBLE
+                        secondCustomSelectionGenre.visibility = View.GONE
                         secondCustomSelectionGenre.text =
                             it[id - 1].genre?.replaceFirstChar { Char ->
                                 if (Char.isLowerCase()) Char.titlecase(

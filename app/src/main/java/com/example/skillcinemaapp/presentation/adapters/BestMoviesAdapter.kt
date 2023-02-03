@@ -74,10 +74,10 @@ class BestMovieViewHolder(
                 "VOICE_DIRECTOR" -> VOICE_DIRECTOR
                 else -> UNKNOWN
             }
-            if (Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK) {
-                movieTitle.text = item.nameEn ?: ""
-            } else {
+            if (Locale.getDefault() == Locale("ru","RU")) {
                 movieTitle.text = item.nameRu ?: item.nameEn ?: ""
+            } else {
+                movieTitle.text = item.nameEn ?: ""
             }
 
             movieRating.text = item.rating ?: ""

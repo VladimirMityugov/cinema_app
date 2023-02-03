@@ -49,8 +49,9 @@ class StaffViewHolder(
                     .into(personPhoto)
 
                 personName.text = when {
-                    Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK -> person.nameEn ?: ""
-                    else -> person.nameRu ?: ""
+                    Locale.getDefault() == Locale("ru", "RU") -> person.nameRu ?: person.nameEn
+                    ?: ""
+                    else -> person.nameEn ?: ""
                 }
                 description.text = person.professionText.dropLast(1)
             }

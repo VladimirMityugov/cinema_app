@@ -6,7 +6,7 @@ data class ItemCustom(
     val genres: List<GenreCustom>,
     val imdbId: String?,
     val kinopoiskId: Int,
-    val nameEn: Any?,
+    val nameEn: String?,
     val nameOriginal: String?,
     val nameRu: String?,
     val posterUrl: String,

@@ -69,9 +69,8 @@ class SearchViewHolder(
 
 
             movieTitle.text = when {
-                Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK -> item.nameOriginal
-                    ?: item.nameEn.toString()
-                else -> item.nameRu ?: ""
+                Locale.getDefault() == Locale("ru", "RU")-> item.nameRu?:item.nameEn?:item.nameOriginal?:""
+                else -> item.nameEn?:item.nameOriginal?:""
             }
 
             watchedStatus.isVisible = item.watchedStatus == true

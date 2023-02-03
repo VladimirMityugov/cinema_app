@@ -99,9 +99,8 @@ class CustomSelectionViewHolderCommon(
                 movieTitle.isVisible = false
             } else {
                     movieTitle.text = when {
-                        Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK -> item.nameOriginal
-                            ?: item.nameEn.toString()
-                        else -> item.nameRu
+                        Locale.getDefault() == Locale("ru","RU")-> item.nameRu?:item.nameOriginal?: item.nameEn.toString()
+                        else -> item.nameOriginal?: item.nameEn.toString()
                     }
             }
 

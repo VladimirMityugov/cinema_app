@@ -48,8 +48,8 @@ class WatchedHolderIndividual(
 
             movieGenre.text = item.genre
             movieTitle.text = when {
-                Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK -> item.nameEn ?: ""
-                else -> item.movieName ?: ""
+                Locale.getDefault() == Locale("ru", "RU") -> item.movieName
+                else -> item.nameEn?:""
             }
             movieRating.text = item.rating.toString()
         }

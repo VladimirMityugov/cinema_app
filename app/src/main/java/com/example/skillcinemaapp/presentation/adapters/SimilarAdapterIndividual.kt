@@ -49,9 +49,8 @@ class SimilarAdapterIndividual(
 
                 movieGenre.text = ""
                 movieTitle.text = when {
-                    Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK -> item.nameEn
-                        ?: item.nameOriginal ?: ""
-                    else -> item.nameRu ?: ""
+                    Locale.getDefault() == Locale("ru", "RU") -> item.nameRu?:item.nameEn?:item.nameOriginal?:""
+                    else -> item.nameEn?:item.nameOriginal?:""
                 }
                 movieRating.isVisible = false
 
