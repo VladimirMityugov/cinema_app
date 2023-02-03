@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.skillcinemaapp.data.remote.person_dto.PersonFilm
 import com.example.skillcinemaapp.databinding.MovieItemBinding
 import com.example.skillcinemaapp.databinding.ShowAllItemBinding
+import java.util.*
 
 
 class PersonMoviesAdapter(
@@ -79,7 +80,11 @@ class PersonMovieViewHolder(
                     .into(moviePicture)
             }
 
-            movieTitle.text = item.nameRu?:item.nameEn?:""
+            movieTitle.text = when {
+                Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK -> item.nameEn ?: ""
+                else -> item.nameRu ?: ""
+            }
+
             movieRating.text = item.rating?:""
 
             binding.root.setOnClickListener {

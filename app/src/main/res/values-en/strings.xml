@@ -1,4 +1,5 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
     <string name="app_name">SkillCinemaApp</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
@@ -33,7 +34,7 @@
     <string name="country">Country</string>
     <string name="movies_list">Filmography</string>
     <string name="to_movies_list">To list</string>
-    <string name="best_movies">Best movies</string>
+    <string name="best_movies">Best</string>
     <string name="series_title">Seasons and series</string>
     <string name="gallery_title">Gallery</string>
     <string name="similar_movies_list">Similar movies list</string>
@@ -94,5 +95,4 @@
     <string name="collections">collections</string>
     <string name="share">Share</string>
     <string name="with_friends">with friends</string>
-
 </resources>

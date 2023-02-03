@@ -220,7 +220,7 @@
                 android:layout_marginTop="35dp"
                 android:layout_marginEnd="26dp"
                 android:background="@drawable/all_button_background"
-                android:text="Все"
+                android:text="@string/all"
                 android:textAppearance="@style/show_all_button_text_style"
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"

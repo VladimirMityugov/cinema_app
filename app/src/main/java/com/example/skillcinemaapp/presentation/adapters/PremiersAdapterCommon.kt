@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.skillcinemaapp.data.remote.premiers_dto.Item
 import com.example.skillcinemaapp.databinding.MovieItemBinding
 import com.example.skillcinemaapp.databinding.ShowAllItemBinding
+import java.util.*
 
 
 class PremiersAdapterCommon(
@@ -81,7 +82,10 @@ class PremiersViewHolderCommon(
             } else watchedStatus.isVisible = false
 
             movieGenre.text = item.genres.firstOrNull()?.genre
-            movieTitle.text = item.nameRu
+            movieTitle.text = when {
+                Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK -> item.nameEn ?: ""
+                else -> item.nameRu ?: ""
+            }
 
             binding.root.setOnClickListener {
                 onItemClick(item)

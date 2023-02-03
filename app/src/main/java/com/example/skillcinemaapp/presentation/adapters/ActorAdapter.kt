@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.skillcinemaapp.data.remote.staff_dto.StaffDto
 import com.example.skillcinemaapp.databinding.StaffItemBinding
+import java.util.Locale
 
 
 class ActorAdapter(
@@ -39,14 +40,19 @@ class ActorViewHolder(
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(actor: StaffDto) {
         with(binding) {
-            if(actor.professionKey == ACTOR){
+            if (actor.professionKey == ACTOR) {
                 Glide
                     .with(personPhoto.context)
                     .load(actor.posterUrl)
                     .centerCrop()
                     .into(personPhoto)
 
-                personName.text = actor.nameRu ?: actor.nameEn ?: ""
+                if (Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK) {
+                    personName.text = actor.nameEn ?: ""
+                } else {
+                    personName.text = actor.nameRu ?: actor.nameEn ?: ""
+                }
+
                 description.text = actor.description ?: ""
             }
         }

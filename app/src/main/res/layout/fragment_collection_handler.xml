@@ -253,7 +253,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="65dp"
                 android:layout_alignStart="@+id/create_custom_collection_button"
-                android:text="Создать свою коллекцию" />
+                android:text="@string/create_own_collection" />
 
         </RelativeLayout>
 

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.skillcinemaapp.data.remote.popular_dto.Film
 import com.example.skillcinemaapp.databinding.MovieItemSelectionBinding
-
+import java.util.*
 
 
 open class TopAdapterIndividual(
@@ -53,7 +53,10 @@ class TopViewHolderIndividual(
             } else watchedStatus.isVisible = false
 
             movieGenre.text = item.genres.firstOrNull()?.genre
-            movieTitle.text = item.nameRu
+            movieTitle.text = when {
+                Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK -> item.nameEn ?: ""
+                else -> item.nameRu ?: ""
+            }
             movieRating.text = item.rating
         }
         binding.root.setOnClickListener {

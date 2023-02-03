@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.skillcinemaapp.data.local.entities.Movie
 import com.example.skillcinemaapp.databinding.ClearHistoryItemBinding
 import com.example.skillcinemaapp.databinding.MovieItemBinding
+import java.util.*
 
 
 open class WatchedAdapterCommon(
@@ -87,7 +88,10 @@ class WatchedViewHolderCommon(
 
             movieGenre.text = item.genre ?: ""
 
-            movieTitle.text = item.movieName
+            movieTitle.text = when {
+                Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK -> item.nameEn ?: ""
+                else -> item.movieName ?: ""
+            }
 
             movieRating.text = item.rating.toString()
         }

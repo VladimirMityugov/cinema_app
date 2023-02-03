@@ -112,7 +112,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="45dp"
                 android:layout_marginEnd="56dp"
-                android:text="Все"
+                android:text="@string/all"
                 android:textAppearance="@style/show_all_button_text_style"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

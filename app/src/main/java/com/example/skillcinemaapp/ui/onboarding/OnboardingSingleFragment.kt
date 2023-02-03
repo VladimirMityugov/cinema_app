@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
+import com.example.skillcinemaapp.R
 import com.example.skillcinemaapp.databinding.FragmentOnboardingSingleBinding
 import com.example.skillcinemaapp.presentation.utility.OnboardingContent
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,7 +20,6 @@ class OnboardingSingleFragment : Fragment() {
 
     private lateinit var onboardingScreenText: AppCompatTextView
     private lateinit var onboardingScreenPicture: AppCompatImageView
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,8 +38,31 @@ class OnboardingSingleFragment : Fragment() {
         onboardingScreenText = binding.onboardingScreenText
         onboardingScreenPicture = binding.onboardingScreenPicture
 
-        onboardingScreenText.text = OnboardingContent.text[position!!]
-        onboardingScreenPicture.setImageResource(OnboardingContent.images[position])
+        when (position) {
+            0 -> {
+                onboardingScreenText.text = buildString {
+                    append(requireActivity().getString(R.string.learn))
+                    append("\n")
+                    append(requireActivity().getString(R.string.about_premiers))
+                }
+            }
+            1 -> {
+                onboardingScreenText.text = buildString {
+                    append(requireActivity().getString(R.string.create))
+                    append("\n")
+                    append(requireActivity().getString(R.string.collections))
+                }
+            }
+            2 -> {
+                onboardingScreenText.text = buildString {
+                    append(requireActivity().getString(R.string.share))
+                    append("\n")
+                    append(requireActivity().getString(R.string.with_friends))
+                }
+            }
+        }
+        onboardingScreenPicture.setImageResource(OnboardingContent.images[position!!])
+
     }
 
     override fun onDestroyView() {
@@ -49,6 +72,7 @@ class OnboardingSingleFragment : Fragment() {
 
     companion object {
         var POSITION = "position"
+
         @JvmStatic
         fun newInstance(position: Int) = OnboardingSingleFragment().apply {
             arguments = Bundle().apply {

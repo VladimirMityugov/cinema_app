@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.skillcinemaapp.data.remote.staff_dto.StaffDto
 import com.example.skillcinemaapp.databinding.StaffItemBinding
+import java.util.*
 
 
 class StaffAdapter(
@@ -47,7 +48,10 @@ class StaffViewHolder(
                     .centerCrop()
                     .into(personPhoto)
 
-                personName.text = person.nameRu ?: person.nameEn ?: ""
+                personName.text = when {
+                    Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK -> person.nameEn ?: ""
+                    else -> person.nameRu ?: ""
+                }
                 description.text = person.professionText.dropLast(1)
             }
         }

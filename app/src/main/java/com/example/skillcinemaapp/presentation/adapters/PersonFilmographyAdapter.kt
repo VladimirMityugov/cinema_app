@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.example.skillcinemaapp.data.remote.person_dto.PersonFilm
 import com.example.skillcinemaapp.databinding.FilmographyMovieItemBinding
-
+import java.util.*
 
 
 class PersonFilmographyAdapter(
@@ -57,8 +57,10 @@ class PersonFilmographyViewHolder(
                     .into(moviePicture)
             }
 
-            movieTitle.text = item.nameRu ?: item.nameEn ?: ""
-
+            movieTitle.text = when {
+                Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK -> item.nameEn ?: ""
+                else -> item.nameRu ?: ""
+            }
 
             binding.root.setOnClickListener {
                 onFilmographyMovieItemClick(item)

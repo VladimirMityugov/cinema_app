@@ -68,8 +68,15 @@ open class SeriesInfoAdapter(
             with(binding) {
                 seriesInfo.text = buildString {
                     append(item.episodeNumber)
-                    append(" серия. ")
-                    append(item.nameRu?:item.nameEn?:"")
+                    if(Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK){
+                        append(" series. ")
+                        append(item.nameEn?:"")
+                    }
+                    else{
+                        append(" серия. ")
+                        append(item.nameRu?:"")
+                    }
+
                 }
                 val calendar = Calendar.getInstance()
                 val apiResponseDate = item.releaseDate
@@ -119,9 +126,28 @@ open class SeriesInfoAdapter(
                     append(
                         when (seasonsNumber) {
                             0 -> ""
-                            1 -> " сезон, "
-                            in 2..4 -> " сезона, "
-                            else -> " сезонов, "
+                            1 -> {
+                                if(Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK){
+                                    " season, "
+                                }else{
+                                    " сезон, "
+                                }
+                            }
+                            in 2..4 -> {
+                                if(Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK){
+                                    " season, "
+                                }else{
+                                    " сезона, "
+                                }
+                            }
+                            else -> {
+                                if(Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK){
+                                    " seasons, "
+                                }else{
+                                    " сезонов, "
+                                }
+                            }
+
                         }
                     )
                     append(
@@ -130,10 +156,34 @@ open class SeriesInfoAdapter(
                     append(
                         if(episodeNumber>0){
                         when (episodeNumber.toString().takeLast(1)) {
-                            "0" -> " серий."
-                            "1" -> " серия."
-                            "2","3","4" -> " серии."
-                            else -> " серий."
+                            "0" -> {
+                                if(Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK){
+                                    " series. "
+                                }else{
+                                    " серий."
+                                }
+                            }
+                            "1" -> {
+                                if(Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK){
+                                    " series."
+                                }else{
+                                    " серия."
+                                }
+                            }
+                            "2","3","4" -> {
+                                if(Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK){
+                                    " series."
+                                }else{
+                                    " серии."
+                                }
+                            }
+                            else -> {
+                                if(Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK){
+                                    " series."
+                                }else{
+                                    " серий."
+                                }
+                            }
                         }
                     }else ""
 

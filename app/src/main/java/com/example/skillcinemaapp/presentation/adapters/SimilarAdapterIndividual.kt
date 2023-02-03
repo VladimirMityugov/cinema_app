@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.skillcinemaapp.data.remote.similar_movies.SimilarMovie
 import com.example.skillcinemaapp.databinding.MovieItemBinding
+import java.util.*
 
 
 class SimilarAdapterIndividual(
@@ -47,7 +48,11 @@ class SimilarAdapterIndividual(
                     .into(moviePicture)
 
                 movieGenre.text = ""
-                movieTitle.text = item.nameRu ?: item.nameEn ?: item.nameOriginal
+                movieTitle.text = when {
+                    Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK -> item.nameEn
+                        ?: item.nameOriginal ?: ""
+                    else -> item.nameRu ?: ""
+                }
                 movieRating.isVisible = false
 
                 binding.root.setOnClickListener {

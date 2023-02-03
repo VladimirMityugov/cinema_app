@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.skillcinemaapp.data.remote.custom_selection_dto.ItemCustom
 import com.example.skillcinemaapp.databinding.MovieItemSelectionBinding
-
+import java.util.*
 
 
 open class FirstCustomAdapterIndividual(
@@ -57,9 +57,9 @@ class CustomViewHolderIndividual(
                 movieTitle.isVisible = false
             } else {
                 movieTitle.text = when {
-                    item.nameRu != null -> item.nameRu
-                    item.nameEn != null -> item.nameEn.toString()
-                    else -> item.nameOriginal
+                    Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK -> item.nameOriginal
+                        ?: item.nameEn.toString()
+                    else -> item.nameRu
                 }
             }
 

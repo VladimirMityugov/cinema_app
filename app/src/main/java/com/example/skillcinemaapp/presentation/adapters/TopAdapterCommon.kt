@@ -11,13 +11,13 @@ import com.bumptech.glide.Glide
 import com.example.skillcinemaapp.data.remote.popular_dto.Film
 import com.example.skillcinemaapp.databinding.MovieItemBinding
 import com.example.skillcinemaapp.databinding.ShowAllItemBinding
+import java.util.*
 
 
-
-open class TopAdapterCommon (
+open class TopAdapterCommon(
     val onTopItemClick: (Film) -> Unit,
     val onShowAllTopClick: (View) -> Unit
-        ) : ListAdapter<Film, RecyclerView.ViewHolder>(DiffUtilCallBackTop()) {
+) : ListAdapter<Film, RecyclerView.ViewHolder>(DiffUtilCallBackTop()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -63,7 +63,7 @@ open class TopAdapterCommon (
     class TopViewHolderCommon(
         private val binding: MovieItemBinding,
         val onItemClick: (Film) -> Unit
-        ) :
+    ) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Film) {
             with(binding) {
@@ -73,12 +73,15 @@ open class TopAdapterCommon (
                     .centerCrop()
                     .into(moviePicture)
 
-                if(item.watchedStatus !=null){
-                    watchedStatus.isVisible = item.watchedStatus== true
+                if (item.watchedStatus != null) {
+                    watchedStatus.isVisible = item.watchedStatus == true
                 } else watchedStatus.isVisible = false
 
                 movieGenre.text = item.genres.firstOrNull()?.genre
-                movieTitle.text = item.nameRu
+                movieTitle.text = when {
+                    Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK -> item.nameEn ?: ""
+                    else -> item.nameRu ?: ""
+                }
                 movieRating.text = item.rating
             }
             binding.root.setOnClickListener {

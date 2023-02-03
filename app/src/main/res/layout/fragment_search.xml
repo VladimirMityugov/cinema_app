@@ -30,7 +30,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:queryHint="Фильмы, актёры, режиссёры" />
+                app:queryHint="@string/search_hint" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/divider"

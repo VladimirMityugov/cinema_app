@@ -11,10 +11,10 @@ import com.bumptech.glide.Glide
 import com.example.skillcinemaapp.data.remote.custom_selection_dto.ItemCustom
 import com.example.skillcinemaapp.databinding.MovieItemBinding
 import com.example.skillcinemaapp.databinding.ShowAllItemBinding
+import java.util.*
 
 
-
-open class FirstCustomAdapterCommon (
+open class FirstCustomAdapterCommon(
     val onFirstCustomItemClick: (ItemCustom) -> Unit,
     val onShowAllFirstCustomClick: (View) -> Unit
 ) :
@@ -91,18 +91,18 @@ class CustomSelectionViewHolderCommon(
 
             movieGenre.text = item.genres.firstOrNull()?.genre
 
-            if(item.watchedStatus !=null){
-                watchedStatus.isVisible = item.watchedStatus== true
+            if (item.watchedStatus != null) {
+                watchedStatus.isVisible = item.watchedStatus == true
             } else watchedStatus.isVisible = false
 
             if (item.nameRu == null && item.nameEn == null && item.nameOriginal == null) {
                 movieTitle.isVisible = false
             } else {
-                movieTitle.text = when {
-                    item.nameRu != null -> item.nameRu
-                    item.nameEn != null -> item.nameEn.toString()
-                    else -> item.nameOriginal
-                }
+                    movieTitle.text = when {
+                        Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK -> item.nameOriginal
+                            ?: item.nameEn.toString()
+                        else -> item.nameRu
+                    }
             }
 
             if (item.ratingKinopoisk == null && item.ratingImdb == null) {

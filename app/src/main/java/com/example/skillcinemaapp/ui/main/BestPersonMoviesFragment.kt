@@ -64,7 +64,7 @@ class BestPersonMoviesFragment : Fragment() {
                     if (it != null) {
                         append(it.nameRu ?: it.nameEn ?: "")
                         append(".\n")
-                        append("Лучшие фильмы")
+                        append(requireActivity().getString(R.string.best_movies))
                     }
                 }
             }

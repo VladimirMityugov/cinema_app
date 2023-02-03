@@ -114,9 +114,12 @@ class SearchSettingsFragment : Fragment() {
             movieViewModel.yearFromForSearch.collectLatest { yearFrom ->
                 movieViewModel.yearToForSearch.collectLatest { yearTo ->
                     year.text = buildString {
-                        append("c ")
+                        append(requireActivity().getString(R.string.from))
+                        append(" ")
                         append(yearFrom)
-                        append(" до ")
+                        append(" ")
+                        append(requireActivity().getString(R.string.to))
+                        append(" ")
                         append(yearTo)
                     }
                 }
@@ -140,10 +143,10 @@ class SearchSettingsFragment : Fragment() {
             movieViewModel.showWatchedAtSearchResult.collectLatest {
                 if (it) {
                     watchedIcon.isActivated = true
-                    watchedFilter.text = "Просмотрен"
+                    watchedFilter.text = requireActivity().getString(R.string.watched)
                 } else {
                     watchedIcon.isActivated = false
-                    watchedFilter.text = "Не просмотрен"
+                    watchedFilter.text = requireActivity().getString(R.string.not_watched)
                 }
             }
         }

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.example.skillcinemaapp.data.remote.person_dto.PersonFilm
 import com.example.skillcinemaapp.databinding.MovieItemSelectionBinding
-
+import java.util.Locale
 
 
 class BestMoviesAdapter(
@@ -47,7 +47,7 @@ class BestMovieViewHolder(
             movieRating.isVisible = true
 
 
-            if(item.posterUri!=null){
+            if (item.posterUri != null) {
                 Glide
                     .with(moviePicture.context)
                     .load(item.posterUri)
@@ -74,8 +74,12 @@ class BestMovieViewHolder(
                 "VOICE_DIRECTOR" -> VOICE_DIRECTOR
                 else -> UNKNOWN
             }
+            if (Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK) {
+                movieTitle.text = item.nameEn ?: ""
+            } else {
+                movieTitle.text = item.nameRu ?: item.nameEn ?: ""
+            }
 
-            movieTitle.text = item.nameRu ?: item.nameEn ?: ""
             movieRating.text = item.rating ?: ""
 
             binding.root.setOnClickListener {

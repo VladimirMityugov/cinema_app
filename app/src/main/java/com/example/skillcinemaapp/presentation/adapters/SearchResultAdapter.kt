@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.example.skillcinemaapp.data.remote.custom_selection_dto.ItemCustom
 import com.example.skillcinemaapp.databinding.FilmographyMovieItemBinding
-
+import java.util.*
 
 
 class SearchResultAdapter(
@@ -68,11 +68,10 @@ class SearchViewHolder(
                     .into(moviePicture)
 
 
-            movieTitle.text = when{
-                item.nameRu!=null -> item.nameRu.toString()
-                item.nameEn!=null -> item.nameEn.toString()
-                item.nameOriginal!=null -> item.nameOriginal.toString()
-                else -> ""
+            movieTitle.text = when {
+                Locale.getDefault() == Locale.US || Locale.getDefault() == Locale.UK -> item.nameOriginal
+                    ?: item.nameEn.toString()
+                else -> item.nameRu ?: ""
             }
 
             watchedStatus.isVisible = item.watchedStatus == true
