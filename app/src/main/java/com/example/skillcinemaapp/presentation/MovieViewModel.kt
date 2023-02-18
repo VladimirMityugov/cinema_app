@@ -36,6 +36,7 @@ import java.time.LocalDate
 import java.util.*
 import javax.inject.Inject
 import kotlin.random.Random
+import kotlin.time.Duration.Companion.days
 
 
 private const val TAG = "VIEW_MODEL"
@@ -907,24 +908,25 @@ class MovieViewModel @Inject constructor(
 
     @RequiresApi(Build.VERSION_CODES.O)
     private fun getPremiers() {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             val simpleDateFormat = SimpleDateFormat(
                 DATE_FORMAT,
                 Locale.getDefault()
             )
 
+            val itemsToDisplay = mutableListOf<Item>()
+
             val calendar = Calendar.getInstance()
             val currentDate = LocalDate.now()
-            val currentYear = currentDate.year
+            val currentYear = calendar.get(Calendar.YEAR)
             val currentMonth = currentDate.month.name.uppercase(Locale.ROOT)
             val currentDay = currentDate.dayOfMonth
 
-            val itemsToDisplay = mutableListOf<Item>()
-
-            val remainingDaysTillMonthEnd = currentDate.month.maxLength() - currentDay
+            val remainingDaysTillMonthEnd = calendar.get(Calendar.MONTH.days.inWholeDays.toInt()) - currentDay
 
             if (remainingDaysTillMonthEnd < 14) {
                 val premiersForCurrentMonth = useCaseRemote.getPremiers(currentYear, currentMonth)
+                Log.d(TAG, "premiers for current month: $premiersForCurrentMonth")
                 premiersForCurrentMonth.forEach { movie ->
                     val premiereDate = simpleDateFormat.parse(movie.premiereRu)
                     if (premiereDate != null) {
@@ -938,6 +940,7 @@ class MovieViewModel @Inject constructor(
                     val nextMonthNumber = currentDate.monthValue + 1
                     val nextMonthName = getMonthByNumber(nextMonthNumber)
                     val premiersForNextMonth = useCaseRemote.getPremiers(currentYear, nextMonthName)
+                    Log.d(TAG, "premiers for next month: $premiersForNextMonth")
                     premiersForNextMonth.forEach { movie ->
                         val premiereDate = simpleDateFormat.parse(movie.premiereRu)
                         if (premiereDate != null) {
@@ -1197,7 +1200,7 @@ class MovieViewModel @Inject constructor(
 
     private fun getMonthByNumber(monthNumber: Int): String {
         val c = Calendar.getInstance()
-        val monthDate = SimpleDateFormat("MMMM", Locale.getDefault())
+        val monthDate = SimpleDateFormat("MMMM", Locale.US)
         c[Calendar.MONTH] = monthNumber - 1
         return monthDate.format(c.time).uppercase(Locale.ROOT)
     }
@@ -1226,7 +1229,7 @@ class MovieViewModel @Inject constructor(
         }
     }
 
-    fun imageSelected(image: Image){
+    fun imageSelected(image: Image) {
         viewModelScope.launch {
             _imageSelected.value = image
         }
@@ -1238,7 +1241,7 @@ class MovieViewModel @Inject constructor(
         }
     }
 
-   private fun showMeMovies() {
+    private fun showMeMovies() {
         viewModelScope.launch {
             _loadingState.value = LoadingState.IsLoading
             getFilters()
