@@ -1,4 +1,4 @@
-# cinema_app
+# Movies in the pocket
 ### Search movies, series, create collections. Available in English and Russian
 
 **Onboarding**
