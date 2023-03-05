@@ -1,6 +1,18 @@
 # Movies in the pocket
 ### Search movies, series, create collections. Available in English and Russian
 
+**The application has 3 tabs and 17 screens, display 6 different
+collections of movies with brief information about each movie.
+User can view the list of actors, descriptions of movies and much
+more by clicking on the poster of any of them. Dynamic search
+is available by specified criteria, as well as create custom movies`
+collections. A profile screen allows edit these collections. App is
+available in English and Russian.
+Data source - Kinopoisk API.
+Used in project:
+Kotlin, Clean Architecture, MVVM, Hilt, Coroutines, Flow,
+Room, Retrofit, Glide, Paging library**
+
 **Onboarding**
 <p align="left">
 <img src="https://user-images.githubusercontent.com/118269028/216333814-6fa7c71f-643b-45c5-9d1c-c799aeb7269e.gif" width=30% height=30%>
