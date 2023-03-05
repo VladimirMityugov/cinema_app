@@ -8,8 +8,7 @@ more by clicking on the poster of any of them. Dynamic search
 is available by specified criteria, as well as create custom movies`
 collections. A profile screen allows edit these collections.**
 
-**Data source - Kinopoisk API.
-Used in project:
+**Used in project:
 Kotlin, Clean Architecture, MVVM, Hilt, Coroutines, Flow,
 Room, Retrofit, Glide, Paging library**
 
