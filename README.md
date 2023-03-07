@@ -8,30 +8,27 @@ more by clicking on the poster of any of them. Dynamic search
 is available by specified criteria, as well as create custom movies`
 collections. A profile screen allows edit these collections.**
 
-**Used in project:**
+**Tech stack:**
 
 **Kotlin, Clean Architecture, MVVM, Hilt, Coroutines, Flow,
-Room, Retrofit, Glide, Paging library**
+Room, Retrofit, Glide, Paging library3**
 
-**Onboarding**
-<p align="left">
+<div style="display:flex;flex-wrap:wrap;">
 <img src="https://user-images.githubusercontent.com/118269028/216333814-6fa7c71f-643b-45c5-9d1c-c799aeb7269e.gif" width=30% height=30%>
- </p>
-
-**Main Tab**
-<p align="left">
 <img src="https://user-images.githubusercontent.com/118269028/216337128-ddf6d3c0-b68a-46f2-b19a-6871f71832d8.gif" width=30% height=30%>
- </p>
-
-**Search Tab**
-<p align="left">
 <img src="https://user-images.githubusercontent.com/118269028/216338045-2ebf3cf7-95d7-4a38-aa65-4dd000740915.gif" width=30% height=30%>
- </p>
-
-**Profile Tab**
-<p align="left">
 <img src="https://user-images.githubusercontent.com/118269028/216339008-80cd33d0-1960-466e-888d-89490e55e375.gif" width=30% height=30%>
- </p>
+</div>
+
+
+<div style="display:flex;flex-wrap:wrap;">
+<img src="https://user-images.githubusercontent.com/118269028/216303413-0a664476-fceb-4f57-92cb-53b85660f688.jpg" width=30% height=30%>
+<img src="https://user-images.githubusercontent.com/118269028/216303355-c52cace5-5a77-4b3f-85b0-bb442c4922c8.jpg" width=30% height=30%>
+<img src="https://user-images.githubusercontent.com/118269028/216303387-4d72f92c-f18c-41bf-a0f3-42e7735d2eee.jpg" width=30% height=30%>
+</div>
+
+
+**Features**
 
 <details><summary>Welcome ViewPager with short app presentation</summary>
 <p>
